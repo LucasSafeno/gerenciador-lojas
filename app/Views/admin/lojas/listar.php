@@ -1,7 +1,9 @@
 <h2>Lojas</h2>
 
 <div class="listar">
-  <a href="#"> + Adicionar Loja</a>
+  <a href="#" id="abrirModalAdicionarLoja"> + Adicionar Loja</a>
+
+  <?php include "../app/Views/partials/cadastrar_loja.php"; ?>
   <table border="1">
     <tr>
       <th>Nome</th>
@@ -35,3 +37,5 @@
     </tr>
   </table>
 </div>
+
+<script src="/js/script.js"></script>
