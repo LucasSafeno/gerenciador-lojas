@@ -1,0 +1,106 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 1em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+.logadowith {
+  align-self: flex-end;
+  font-size: 1em;
+}
+
+.container {
+  width: 80%;
+  margin: 20px auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.listar {
+  text-align: center;
+}
+
+.listar table tr,
+td,
+th {
+  padding: 10px;
+}
+
+footer {
+  text-align: center;
+  padding: 1em;
+  background-color: #333;
+  color: white;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.form form {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.form form input {
+  width: 50%;
+  height: 35px;
+  padding: 10px;
+  outline: none;
+}
+.form form button {
+  width: 25%;
+  background-color: #34eb9e;
+  border: 1px solid green;
+  padding: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.form form button:hover {
+  border: 1px solid black;
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}
+.success {
+  color: green;
+  font-weight: bold;
+}
