@@ -95,4 +95,20 @@ class Usuarios
     return $stmt->fetch(\PDO::FETCH_OBJ);
   } //? getInfoUser
 
+  public static function buscarAtendentesDisponiveis(string $termo)
+  {
+    $database = new Database;
+    $pdo = $database->getPDO();
+
+    $sql = "
+            SELECT id, firstName, lastName
+            FROM usuarios
+            WHERE (firstName LIKE :termo OR lastName LIKE :termo)
+        ";
+
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(':termo', '%' . $termo . '%');
+    $stmt->execute();
+    return $stmt->fetchAll(\PDO::FETCH_OBJ);
+  } //? buscarAtendentesDisponiveis
 }

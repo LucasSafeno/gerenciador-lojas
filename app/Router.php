@@ -43,7 +43,10 @@ class Router
       }, $route);
       $pattern = '#^' . $pattern . '$#';
 
-      if (preg_match($pattern, $uri, $matches)) {
+      // A correção principal está aqui:
+      // Extraímos o caminho da URL usando parse_url()
+      $path_only = parse_url($uri, PHP_URL_PATH);
+      if (preg_match($pattern, $path_only, $matches)) {
         $params = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY);
         self::executeCallback($callback, array_values($params));
         return;

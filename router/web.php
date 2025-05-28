@@ -14,7 +14,9 @@ Router::get('/admin/dashboard', [AdminController::class, 'index']);
 
 // Lojas  - Admin
 Router::get('/admin/lojas', [AdminController::class, 'lojas']);
-Router::post('/admin/lojas/salvar', [LojasController::class, 'salvar']);
+Router::post('/admin/lojas/salvar', [AdminController::class, 'salvar']);
+Router::post('/admin/lojas/excluir/{id}', [AdminController::class, 'excluirLoja']);
+Router::get('/admin/buscar-atendentes/', [AdminController::class, 'buscarAtendentes']);
 
 
 //Logout

@@ -30,4 +30,41 @@ class AdminController
     ];
     view('admin/lojas/listar', $data);
   } //? lojas
-}
+
+  public  function buscarAtendentes()
+  {
+    $termo = $_GET['termo'] ?? '';
+    $atendentesDisponiveis =  Usuarios::buscarAtendentesDisponiveis($termo);
+    header('Content-Type: application/json'); // Certifique-se de que este cabeçalho está presente
+    echo json_encode($atendentesDisponiveis);
+  } //? buscarAtendentes()
+
+  public function salvar()
+  {
+    $nomeLoja = filter_input(INPUT_POST, "nome", FILTER_DEFAULT);
+    $atendenteId = filter_input(INPUT_POST, "atendenteId", FILTER_DEFAULT);
+    $status = filter_input(INPUT_POST, "status", FILTER_DEFAULT);
+
+    if (Lojas::cadastrarLoja($nomeLoja, $atendenteId, $status)) {
+      $_SESSION['msg_type'] = "success";
+      $_SESSION['msg'] = "Loja cadastrada com sucesso";
+      redirect("/admin/lojas");
+    } else {
+      $_SESSION['msg_type'] = "alert";
+      $_SESSION['msg'] = "Erro ao cadastrar Loja";
+      redirect("/admin/lojas");
+    }
+  } //?salvar
+
+  public function excluirLoja(int $id)
+  {
+
+    // Não precisa de $_GET['id'] aqui, o $id já é o parâmetro da rota
+    if (Lojas::excluirLoja($id)) {
+      $_SESSION['success'] = "Loja excluída com sucesso!"; // Padronizado para 'success'
+    } else {
+      $_SESSION['error'] = "Erro ao excluir Loja."; // Padronizado para 'error'
+    }
+    redirect("/admin/lojas");
+  } //? excluirLoja
+}//! AdminController

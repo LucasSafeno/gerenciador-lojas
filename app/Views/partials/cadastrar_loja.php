@@ -9,7 +9,10 @@
       </div>
       <div>
         <label for="nome_atendente">Nome do Atendente:</label>
-        <input type="text" id="nome_atendente" name="atendenteId" required>
+        <input type="text" id="nome_atendente" name="nome_atendente" autocomplete="off" required>
+        <ul id="lista_atendentes">
+        </ul>
+        <input type="hidden" id="atendente_selecionado_id" name="atendenteId"> <small>Selecione um atendente da lista.</small>
       </div>
       <div>
         <label for="status">Status:</label>
@@ -97,5 +100,27 @@
 
   .modal-conteudo button[type=submit]:hover {
     background-color: #45a049;
+  }
+
+  #lista_atendentes {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    background-color: white;
+    width: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 2;
+    display: none;
+  }
+
+  #lista_atendentes li {
+    padding: 8px;
+    cursor: pointer;
+  }
+
+  #lista_atendentes li:hover {
+    background-color: #f0f0f0;
   }
 </style>
